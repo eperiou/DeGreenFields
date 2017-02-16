@@ -15,8 +15,9 @@ app.post('/login', (err,succes)=>{
   }
 });
 
-app.listen(PORT, function() {
+
+app.listen(PORT, () => {
   console.log('listening on 3000')
-})
+});
 
 module.exports = app;
