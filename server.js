@@ -16,7 +16,13 @@ app.use(express.static(__dirname + '/build'));
 app.use(express.static(path.join(__dirname, '/build')));
 
 
-
+app.post('/login', (err,succes)=>{
+  if(err){
+    console.log(err);
+  }else {
+    console.log(succes);
+  }
+});
 
 app.listen(PORT, function() {
   console.log('listening on 3000')
