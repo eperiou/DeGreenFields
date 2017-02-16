@@ -17,17 +17,17 @@ Once the project moves into development, the press release can be used as a touc
  -->
 
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  <!-- > Name the product in a way the reader (i.e. your target customers) will understand. -->
 What's Happenin'
 
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  <!-- > Describe who the market for the product is and what benefit they get. One sentence only underneath the title. -->
 Bored people with no plans can find out what the hell's goin' on.
 
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  <!-- > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good. -->
 This is the most amazing product you've ever had. It's huge. You'll wonder why you've never had
 this product. It let's you know what's happenin' around you. Don't be a slump. Need to
 know what's happenin' right now? Got a few free hours to play a pickup game
@@ -38,20 +38,20 @@ I got it, you want it, come get it. Take it.
 
 
 ## Problem ##
-  > Describe the problem your product solves.
+  <!-- > Describe the problem your product solves. -->
 Sometimes, you're wondering what you'll do on your day off. Well, wonder no often.
 This app will tell you exactly what is happenin' near you. Or, set up an event to
 find other like-minded people or coordinate your favorite past-time.
 
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  <!-- > Describe how your product elegantly solves the problem. -->
 Easy creation and posting of short time-frame events so that spontaneous activities
 can be enjoyed by like-minded individuals.
 
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  <!-- > A quote from a spokesperson in your company. -->
 "√" -Eric
 "This app solves the issue of knowing what to do when you want to do something with somebody with
  uhhh short time-constraints so if you need a running body or you just want to go
@@ -60,14 +60,14 @@ find what's happenin' and that's it." -Eric
 
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  <!-- > Describe how easy it is to get started. -->
 First, we need to fill out a login page, which gains you access to the main page.
 Once you have access, you can create a profile, helping you select parameters to
 highlight activities that you might be interested in.
 
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  <!-- > Provide a quote from a hypothetical customer that describes how they experienced the benefit. -->
 "It was easy. I was looking for a running buddy. Posted I was going run a trail in the morning. Three people showed up. Afterwards, we used the app to find a local pub with $3 mimosas." -Eric
 
 
