@@ -1,14 +1,14 @@
+let path = require('path');
 const express = require('express');
 const app = express();
 let PORT = process.env.PORT || 3000;
+const bodyparser = require('body-parser');
+
+
+app.use(express.static(path.join(__dirname, '/build')));
 
 
 
-
-
-app.get('/', function (req, res) {
-  res.send('Hello World');
-})
 
 
 app.listen(PORT, function() {
