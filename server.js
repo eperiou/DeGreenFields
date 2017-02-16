@@ -1,19 +1,10 @@
-let path = require('path');
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
-const path = require('path')
+
+var mongoose = require('mongoose');
 let PORT = process.env.PORT || 3000;
-const bodyparser = require('body-parser');
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-
-app.use(express.static(__dirname + '/build'));
-
-
-app.use(express.static(path.join(__dirname, '/build')));
+mongoose.connect('mongodb://ericdevin:businessusersstuff@ds153659.mlab.com:53659/whatshappenin');
 
 
 app.post('/login', (err,succes)=>{
@@ -27,3 +18,5 @@ app.post('/login', (err,succes)=>{
 app.listen(PORT, function() {
   console.log('listening on 3000')
 })
+
+module.exports = app;
