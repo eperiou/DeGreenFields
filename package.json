@@ -16,7 +16,7 @@
     "react-scripts": "^0.9.0"
   },
   "scripts": {
-    "start": "npm run build && node server.js",
+    "start": "node server.js",
     "server": "babel-node server.js",
     "dev": "react-scripts start",
     "build": "react-scripts build",
