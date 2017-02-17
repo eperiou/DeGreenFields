@@ -25,13 +25,13 @@ module.exports = {
 
   postEvent: (req, res, next) => {
     const body = req.body;
-
+    const tags = body.tags ?  body.tags.split(' ') : '';
     postAnEvent({
       username: body.username,
       eventTime: body.eventTime,
       location: body.location,
       createdAt: new Date().toLocaleString(),
-      tags: body.tags.split(' '),
+      tags,
       businessName: body.businessName,
       picLink: body.picLink,
       busLink: body.busLink,
