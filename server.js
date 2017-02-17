@@ -3,10 +3,13 @@ const mongoose = require('mongoose');
 
 const app = express();
 
+require('dotenv').config();
 require('./server/middleware.js')(app, express);
 require('./server/routes.js')(app, express);
 
-mongoose.connect('mongodb://ericdevin:businessusersstuff@ds153659.mlab.com:53659/whatshappenin');
+const PORT = process.env.PORT || 3000;
+
+mongoose.connect(process.env.MONGO_KEY);
 
 
 app.post('/login', (err,succes)=>{
