@@ -8,6 +8,7 @@ require('dotenv').config();
 require('./server/middleware.js')(app, express);
 require('./server/routes.js')(app, express);
 
+
 mongoose.connect(process.env.MONGO_KEY, (err) => {
   if (err) {
     console.log('No database connectivity');
