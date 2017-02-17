@@ -16,6 +16,19 @@ mongoose.connect(process.env.MONGO_KEY, (err) => {
     console.log('Database connected');
   }
 });
+const PORT = process.env.PORT || 3000;
+
+// mongoose.connect(process.env.MONGO_KEY);
+
+
+app.post('/login', (err,succes)=>{
+  if(err){
+    console.log(err);
+  }else {
+    console.log(succes);
+
+  }
+});
 
 
 // app.post('/login', (err,succes)=>{
