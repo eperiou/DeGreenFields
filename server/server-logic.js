@@ -2,12 +2,14 @@ const Q = require('q');
 const RegularUsers = require('./../models/userSchema.js');
 const BusinessUsers = require('./../models/businessUserSchema.js');
 const Events = require('./../models/eventSchema.js');
+const utils = require('../utils/utilities.js');
 
 
 // Promisify a few mongoose methods with the `q` promise library
 const findUser = Q.nbind(RegularUsers.findOne, RegularUsers);
 const findBusUser = Q.nbind(BusinessUsers.findOne, BusinessUsers);
 const findAllEvents = Q.nbind(Events.find, Events);
+const postAnEvent = Q.nbind(Events.create, Events);
 
 module.exports = {
 
@@ -21,11 +23,28 @@ module.exports = {
       });
   },
 
+  postEvent: (req, res, next) => {
+    const body = req.body;
+
+    postAnEvent({
+      username: body.username,
+      eventTime: body.eventTime,
+      location: body.location,
+      createdAt: new Date().toLocaleString(),
+      tags: body.tags.split(' '),
+      businessName: body.businessName,
+      picLink: body.picLink,
+      busLink: body.busLink,
+      description: body.dscription,
+    })
+    .then(() => {
+      res.setStatus(201).end();
+    })
+    .fail(err => err);
+  },
+
   // getUser: (req, res, next) => {
   //
   // },
 
-  // postEvent: (req, res, next) => {
-  //
-  // },
 };

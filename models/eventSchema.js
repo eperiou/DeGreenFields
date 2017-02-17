@@ -4,11 +4,11 @@ const Events = new mongoose.Schema({
   username: String,
   eventTime: Date,
   location: String,
-  createdAt: Date,
-  tags: String,
+  createdAt: Date, // In the format of "2/16/2017, 8:28:03 PM"
+  tags: Array,
   businessName: String,
-  picLink: String,
-  busLink: String,
+  picLink: String, // Link to hosted picture
+  busLink: String, // url to business' homepage
   description: String,
 });
 

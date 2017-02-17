@@ -1,10 +1,8 @@
-const express = require('express');
 const logic = require('./server-logic.js');
-
 
 module.exports = (app, express) => {
 
-// app.post('/add/event', logic.)
+  app.get('/get/events', logic.getEvents);
 
-
+  app.post('/post/event', logic.postEvent);
 };
