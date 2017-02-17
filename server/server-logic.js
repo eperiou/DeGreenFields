@@ -25,7 +25,9 @@ module.exports = {
 
   postEvent: (req, res, next) => {
     const body = req.body;
-    const tags = body.tags ?  body.tags.split(' ') : '';
+
+    const tags = body.tags ? body.tags.split(' ') : '';
+
     postAnEvent({
       username: body.username,
       eventTime: body.eventTime,
