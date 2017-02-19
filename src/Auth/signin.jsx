@@ -1,4 +1,6 @@
-var signin = () => (
+import React from 'react';
+
+const Signin = () => (
     <div className="container">
       <h1 className="welcome text-center">Welcome to Whats Happenin'</h1>
           <div className="card card-container">
@@ -21,3 +23,5 @@ var signin = () => (
         </div>
     </div>
 );
+
+window.signin = signin;
