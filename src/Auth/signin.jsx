@@ -1,27 +1,39 @@
 import React from 'react';
-
-const Signin = () => (
-    <div className="container">
-      <h1 className="welcome text-center">Welcome to Whats Happenin'</h1>
+// import Signup from './Signup.jsx';
+const Signin = (props) => {
+// //props
+//   hasAccount
+//     changeSignedIn
+//         signedIn
+//
+var logSomething = function () {
+    console.log('hi');
+};
+    return (
+      <div className="container">
+        <h1 className="welcome text-center">Welcome to Whats Happenin'</h1>
           <div className="card card-container">
           <h2 className="login_title text-center">Login</h2>
-          <form  className="form-signin">
+            <form  className="form-signin">
               <span id="reauth-email" className="reauth-email"></span>
-              <p className="input_title">Email</p>
-                  <input type="text" id="inputEmail" className="login_box"
-                    placeholder="user01@placename.com"></input>
-                  <p className="input_title">Password</p>
-                  <input type="password" id="inputPassword" className="login_box" placeholder="******" required></input>
-                  <div id="remember" className="checkbox">
-                      <label>
+                <p className="input_title">Email</p>
+                    <input type="text" id="inputEmail" className="login_box"
+                      placeholder="user01@placename.com"></input>
+                    <p className="input_title">Password</p>
+                    <input type="password" id="inputPassword" className="login_box" placeholder="******" required></input>
+                    <div id="remember" className="checkbox"></div>
+                    <button className="btn btn-lg btn-primary" type="submit">Login</button>
+                <a onClick={logSomething}>"Don't have an account? Get one!"</a>
+              </form>
+            </div>
+      </div>
+    );
 
-                      </label>
-                  </div>
-                  <button onSubmit={this.userLogin()}
-                     className="btn btn-lg btn-primary" type="submit">Login</button>
-            </form>
-        </div>
-    </div>
-);
+  // } else {
+  //   return <Signup />;
+  // }
 
-window.signin = signin;
+}
+
+
+export default Signin;
