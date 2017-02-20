@@ -62,6 +62,35 @@ module.exports = (app, passport) => {
       failureRedirect: '/login',
     }));
 
+  /* AUTHORIZE ROUTES FOR LINKING ACCOUNTS: */
+
+  // Facebook -------------------------------
+
+  // send to facebook to do the authentication
+  app.get('/connect/facebook', passport.authorize('facebook', { scope: 'email' }));
+  // handle the callback after facebook has authorized the user
+  app.get('/connect/facebook/callback',
+    passport.authorize('facebook', {
+      successRedirect: '/profile',
+      failureRedirect: '/',
+    }));
+  // Google ---------------------------------
+  app.get('/connect/google', passport.authorize('google', { scope: ['profile', 'email'] }));
+  // the callback after google has authorized the user
+  app.get('/connect/google/callback',
+    passport.authorize('google', {
+      successRedirect: '/profile',
+      failureRedirect: '/',
+    }));
+  // Github ---------------------------------
+  app.get('/connect/github', passport.authorize('github'));
+  // the callback after google has authorized the user
+  app.get('/connect/github/callback',
+    passport.authorize('github', {
+      successRedirect: '/profile',
+      failureRedirect: '/',
+    }));
+
   app.get('/get/events', logic.getEvents);
 
   app.post('/post/event', logic.postEvent);

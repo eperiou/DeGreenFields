@@ -1,13 +1,27 @@
-// const passport = require('passport');
-// const LocalStrategy = require('passport-local').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
 const GitHubStrategy = require('passport-github').Strategy;
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
-// const logic = require('./server-logic.js');
 const configAuth = require('./auth.js');
 const RegularUser = require('./../models/userSchema.js');
 
 module.exports = (passport) => {
+  // Local login
+
+  passport.use(new LocalStrategy(
+    (username, password, done) => {
+      RegularUser.findOne({ username }, (err, user) => {
+        if (err) { return done(err); }
+        if (!user) {
+          return done(null, false, { message: 'Incorrect username.' });
+        }
+        if (!user.validPassword(password)) {
+          return done(null, false, { message: 'Incorrect password.' });
+        }
+        return done(null, user);
+      });
+    },
+  ));
   passport.use(new GitHubStrategy({
     clientID: configAuth.githubAuth.clientID,
     clientSecret: configAuth.githubAuth.clientSecret,
@@ -115,29 +129,3 @@ module.exports = (passport) => {
     });
   }));
 };
-
-// passport.use(new LocalStrategy(
-//   (username, password, done) => {
-//     logic.getUser({ body: { username } }, function (err, user) {
-//       if (err) {
-//         return done(err);
-//       }
-//       if (!user) {
-//         return done(null, false, { message: 'Incorrect username'});
-//       }
-//       if (!user.validPassword(password)) {
-//
-//       }
-//     });
-
-
-    // User.findOne({ username: username }, function (err, user) {
-    //   if (err) { return done(err); }
-    //   if (!user) {
-    //     return done(null, false, { message: 'Incorrect username.' });
-    //   }
-    //   if (!user.validPassword(password)) {
-    //     return done(null, false, { message: 'Incorrect password.' });
-    //   }
-    //   return done(null, user);
-    // });
