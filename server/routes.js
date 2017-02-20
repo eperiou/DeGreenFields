@@ -1,12 +1,14 @@
 const logic = require('./server-logic.js');
 
 module.exports = (app, passport) => {
+  // middleware passport function verifying logged-in status
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
       return next();
     }
     return res.redirect('/login');
   }
+  // begin regular routes
   app.route('/')
     .get(isLoggedIn, (req, res) => {
       res.sendFile('../public/index.html');
@@ -38,6 +40,17 @@ module.exports = (app, passport) => {
       successRedirect: '/',
       failureRedirect: '/login',
     }));
+
+  // Google log-in routes
+  app.route('/auth/google')
+    .get(passport.authenticate('google', { scope: ['profile', 'email'] }));
+    // the callback after google has authenticated the user
+  app.route('/auth/google/callback')
+    .get(passport.authenticate('google', {
+      successRedirect: '/',
+      failureRedirect: '/login',
+    }));
+
   app.get('/get/events', logic.getEvents);
 
   app.post('/post/event', logic.postEvent);
