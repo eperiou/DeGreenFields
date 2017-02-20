@@ -1,4 +1,5 @@
 const logic = require('./server-logic.js');
+const path = require('path');
 
 module.exports = (app, passport) => {
   // middleware passport function verifying logged-in status
@@ -11,11 +12,11 @@ module.exports = (app, passport) => {
   // begin regular routes
   app.route('/')
     .get(isLoggedIn, (req, res) => {
-      res.sendFile('../public/index.html');
+      res.sendFile(path.join(__dirname, '..', '/public/index.html'));
     });
   app.route('/login')
     .get((req, res) => {
-      res.sendFile('../public/login.html');
+      res.sendFile(path.join(__dirname, '..', '/public/login.html'));
     });
   app.route('/logout')
     .get((req, res) => {
@@ -51,14 +52,14 @@ module.exports = (app, passport) => {
       failureRedirect: '/login',
     }));
 
+  // Facebook log-in routes
   app.route('/auth/facebook')
     .get(passport.authenticate('facebook', { scope: 'email' }));
-
     // handle the callback after facebook has authenticated the user
   app.route('/auth/facebook/callback')
     .get(passport.authenticate('facebook', {
       successRedirect: '/',
-      failureRedirect: '/login'
+      failureRedirect: '/login',
     }));
 
   app.get('/get/events', logic.getEvents);
