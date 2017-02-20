@@ -1,29 +1,32 @@
 import React from 'react';
 
-const EventDetail = (props) => {
+const Event = (props) => {
+  /**
+ * Returns the sum of a and b
+ * @param {props.event} an event item
+ * @returns rendered event list item
+ */
+ console.log(props);
   return (
     <article className="eventdetail">
-      <img src="http://www.ufunk.net/wp-content/uploads/2013/03/thumbs-and-ammo-9.jpg" className="col-md-2"></img>
-      <section className="eventdescription">
-        <div className="col-md-3">
+        <div class='eventlistbox'>
           <h3>Eventheader</h3>
-            <div>username: String,</div>
-            <div>eventTime: Date,</div>
+            <div>eventTime: Date,{props.event}</div>
             <a>location: String, link to map</a>
             <p> full event description</p>
         </div>
-      </section>
     </article>
   );
-}
-//
-//
+};
 
+//Even schema for reference
+// username: String,
+// eventTime: Date,
+// location: String,
 // createdAt: Date, // In the format of "2/16/2017, 8:28:03 PM"
 // tags: Array,
 // businessName: String,
 // picLink: String, // Link to hosted picture
 // busLink: String, // url to business' homepage
 // description: String,
-// });
-export default EventDetail;
+export default Event;
