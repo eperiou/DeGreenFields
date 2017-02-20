@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Signin from './Auth/signin.jsx';
-import Map_Page from './mainpage/events_mappage.jsx'
+import MapPage from './mainpage/EventsMappage.jsx'
 
 class App extends Component {
   constructor() {
@@ -20,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Map_Page />
+        <MapPage />
       </div>
     )
   }

@@ -1,12 +1,12 @@
 import React from 'react';
-import Event from './event.jsx';
+import Event from './Event.jsx';
 
 const EventList = (props) => {
-  console.log(props, 'eventlist');
+  console.log(props.eventlist, 'eventlist');
   return (
     <div>
-      {props.eventList.map(event =>{
-        <Event event={event} />
+      {props.eventlist.map(event =>{
+          return <Event event={event} />
       })}
     </div>
   );
