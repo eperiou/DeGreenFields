@@ -2,11 +2,10 @@ import React from 'react';
 import Event from './Event.jsx';
 
 const EventList = (props) => {
-  console.log(props.eventlist, 'eventlist');
   return (
     <div>
       {props.eventlist.map(event =>{
-          return <Event event={event} />
+          return <Event setDetailsBox={props.setDetailsBox} event={event} />
       })}
     </div>
   );

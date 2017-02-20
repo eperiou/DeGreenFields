@@ -1,14 +1,16 @@
 import React from 'react';
 
 const Event = (props) => {
-  /**
- * Returns the sum of a and b
+  /**setDetailsBox passed down from mappage
  * @param {props.event} an event item
- * @returns rendered event list item
+ * @returns sets the Event details box to this event
  */
+ var setDetailsBox = function() {
+   props.setDetailsBox(props.event);
+ }
  console.log(props);
   return (
-    <article className="eventdetail">
+    <article onClick={setDetailsBox} className="eventdetail">
         <div class='eventlistbox'>
           <h3>Eventheader</h3>
             <div>eventTime: Date,{props.event}</div>

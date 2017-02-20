@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
 
-import Signin from './Auth/signin.jsx';
+// import Signin from './Auth/signin.jsx';
 import MapPage from './mainpage/EventsMappage.jsx'
 
 class App extends Component {
@@ -22,7 +21,7 @@ class App extends Component {
       <div>
         <MapPage />
       </div>
-    )
+    );
   }
 }
 export default App;
