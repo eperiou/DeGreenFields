@@ -1,47 +1,34 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
 
+
+// import Signin from './Auth/signin.jsx';
+
+import MapPage from './mainpage/EventsMappage.jsx'
+
 class App extends Component {
-constructor () {
-  super()
-  this.userLogin = this.userLogin.bind(this);
-}
-// userLogin () {
-//   alert('hello')
-// }
-
-render() {
+  constructor() {
+    super();
+    this.state = {
+      signedIn: false,
+      business: false,
+      hasAccount: true,
+    };
+  }
+  changeSignedIn(signedIn) {
+    this.setState({ signedIn });
+  }
+  render() {
     return (
-      <div className="container">
-        <h1 className="welcome text-center">Welcome to Whats Happenin'</h1>
-            <div className="card card-container">
-            <h2 className="login_title text-center">Login</h2>
-
-            <form  className="form-signin">
-                <span id="reauth-email" className="reauth-email"></span>
-                <p className="input_title">Email</p>
-                    <input type="text" id="inputEmail" className="login_box"
-                      placeholder="user01@placename.com"></input>
-                    <p className="input_title">Password</p>
-                    <input type="password" id="inputPassword" className="login_box" placeholder="******" required></input>
-                    <div id="remember" className="checkbox">
-                        <label>
-
-                        </label>
-                    </div>
-                    <button onSubmit={this.userLogin()}
-                       className="btn btn-lg btn-primary" type="submit">Login</button>
-              </form>
-          </div>
+      <div>
+        <MapPage />
       </div>
+
     );
-  }
 
-  userLogin (){
-      console.log('login');
   }
-
 }
-
 export default App;
+// {/* <Signin hasAccount={this.state.hasAccount}
+//   changeSignedIn={this.changeSignedIn.bind(this)}
+//   signedIn={this.state.signedIn}/> */}
