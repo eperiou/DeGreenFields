@@ -47,7 +47,6 @@ class MapPage extends Component {
                      <EventDetail Event={this.detailsBox}/>
                    </section>
                </section>
-
              </section>
              <sidebar className="col-lg-2">
                //want the eventlist items to update the Detailsbox on click
