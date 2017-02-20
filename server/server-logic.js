@@ -45,8 +45,14 @@ module.exports = {
     .fail(err => err);
   },
 
-  // getUser: (req, res, next) => {
-  //
-  // },
+  getUser: (req, res) => {
+    findUser({
+      username: req.body.username,
+    })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch(err => err);
+  },
 
 };
