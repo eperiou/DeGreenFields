@@ -12,8 +12,7 @@ module.exports = (passport) => {
     clientID: configAuth.githubAuth.clientID,
     clientSecret: configAuth.githubAuth.clientSecret,
     callbackURL: configAuth.githubAuth.callbackURL,
-  },
-  (token, refreshToken, profile, done) => {
+  }, (token, refreshToken, profile, done) => {
     process.nextTick(() => {
       RegularUser.findOne({ 'github.id': profile.id }, (err, user) => {
         if (err) {
@@ -43,8 +42,7 @@ module.exports = (passport) => {
     clientID: configAuth.googleAuth.clientID,
     clientSecret: configAuth.googleAuth.clientSecret,
     callbackURL: configAuth.googleAuth.callbackURL,
-  },
-  (token, refreshToken, profile, done) => {
+  }, (token, refreshToken, profile, done) => {
         // make the code asynchronous
         // User.findOne won't fire until we have all our data back from Google
     process.nextTick(() => {
@@ -105,7 +103,6 @@ module.exports = (passport) => {
         newUser.facebook.token = token; // we will save the token that facebook provides to the user
         newUser.facebook.name = `${profile.name.givenName} ${profile.name.familyName}`; // look at the passport user profile to see how names are returned
         newUser.facebook.email = profile.emails[0].value; // facebook can return multiple emails so we'll take the first
-
         // save our user to the database
         return newUser.save((error) => {
           if (error) {
