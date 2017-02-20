@@ -1,6 +1,7 @@
 import React from 'react';
 
 const EventDetail = (props) => {
+
   console.log(props);
   return (
     <article className="eventdetail">
@@ -14,6 +15,7 @@ const EventDetail = (props) => {
               <p> full event description</p>
           </div>
         </section>
+
     </article>
   );
 }

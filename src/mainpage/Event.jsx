@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Event = (props) => {
+  
   /**setDetailsBox passed down from mappage
  * @param {props.event} an event item
  * @returns sets the Event details box to this event
@@ -11,6 +12,7 @@ const Event = (props) => {
  console.log(props);
   return (
     <article onClick={setDetailsBox} className="eventdetail">
+
         <div class='eventlistbox'>
           <h3>Eventheader</h3>
             <div>eventTime: Date,{props.event}</div>
