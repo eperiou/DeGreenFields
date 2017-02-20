@@ -51,6 +51,16 @@ module.exports = (app, passport) => {
       failureRedirect: '/login',
     }));
 
+  app.route('/auth/facebook')
+    .get(passport.authenticate('facebook', { scope: 'email' }));
+
+    // handle the callback after facebook has authenticated the user
+  app.route('/auth/facebook/callback')
+    .get(passport.authenticate('facebook', {
+      successRedirect: '/',
+      failureRedirect: '/login'
+    }));
+
   app.get('/get/events', logic.getEvents);
 
   app.post('/post/event', logic.postEvent);
