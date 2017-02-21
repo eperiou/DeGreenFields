@@ -1,5 +1,6 @@
 import React from 'react';
-// import Signup from './Signup.jsx';
+import Signup from './signup.jsx';
+import {Link} from 'react-router'
 const Signin = (props) => {
 // //props
 //   hasAccount
@@ -23,7 +24,7 @@ var logSomething = function () {
                     <input type="password" id="inputPassword" className="login_box" placeholder="******" required></input>
                     <div id="remember" className="checkbox"></div>
                     <button className="btn btn-lg btn-primary" type="submit">Login</button>
-                <a onClick={logSomething}>"Don't have an account? Get one!"</a>
+                    <Link to='/signup' >"Don't have an account? Get one!"</Link>
               </form>
             </div>
       </div>
