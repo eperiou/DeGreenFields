@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import EventDetail from './components/EventDetail.jsx';
 import EventList from './components/eventList.jsx';
-import Map from './components/Map.jsx';
 import Nav from './../Nav.jsx';
 
-class MapPage extends Component {
+class UserPage extends Component {
   constructor() {
     super();
     this.state = {
-      eventList: ['event1', 'event2', 'event3', 'event4', 'event5'],
+      eventList: ['userevent1', 'userevent2', 'userevent3', 'userevent4', 'userevent5'],
       map: null,
       detailsBox: null,
     };
@@ -38,15 +36,7 @@ class MapPage extends Component {
       <main className="container">
           <div>
             <Nav />
-             <section id="map" className="col-lg-4">
-               <section >
-                 //map will hold google maps
-                   <Map />
-                 <article id="EventDetail">
-                   //plan for object of event to be passed through
-                   <EventDetail event={this.state.detailsBox} />
-                 </article>
-               </section>
+             <section id="userprofile" className="col-lg-4">
              </section>
              <sidebar className="col-lg-4">
                //want the eventlist items to update the Detailsbox on click
@@ -59,7 +49,7 @@ class MapPage extends Component {
   }
 }
 
-export default MapPage;
+export default UserPage;
 
 //navbar
 
