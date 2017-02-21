@@ -4,7 +4,7 @@ import {Router, Route, hashHistory } from 'react-router';
 
 import Signin from './Auth/signin.jsx';
 import Signup from './Auth/signup.jsx';
-import Nav from './Nav.jsx';
+// import Nav from './Nav.jsx';
 import MapPage from './mainpage/EventsMappage.jsx';
 import UserPage from './mainpage/UserPage.jsx';
 
@@ -27,7 +27,7 @@ class App extends Component {
         <Route path='/' component={Signin} />
         <Route path='/signup' component={Signup} />
         <Route path='/eventspage' component={MapPage} >
-        <Route component path='/userpage' component={UserPage}/>
+        <Route path='/userpage' component={UserPage}/>
         </Route>
         <Route path='*' component={Signin} />
       </Router>
