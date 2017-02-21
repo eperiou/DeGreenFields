@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router'
 
 const Signup = () => (
   <div className="container">
@@ -14,6 +15,7 @@ const Signup = () => (
                 <input type="password" id="inputPassword" className="login_box" placeholder="******" required></input>
                 <div id="remember" className="checkbox"></div>
                 <button className="btn btn-lg btn-primary" type="submit">Login</button>
+                <Link to='/signin' >I'm a user go to login page</Link>
           </form>
         </div>
   </div>
