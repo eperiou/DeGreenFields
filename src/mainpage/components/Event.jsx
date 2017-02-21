@@ -11,9 +11,9 @@ const Event = (props) => {
  }
  console.log(props);
   return (
-    <article onClick={setDetailsBox} className="eventdetail">
+    <article className="eventdetail">
 
-        <div className='eventlistbox'>
+        <div onClick={setDetailsBox} className='eventlistbox'>
           <h3>Eventheader</h3>
             <div>eventTime: Date,{props.event}</div>
             <a>location: String, link to map</a>

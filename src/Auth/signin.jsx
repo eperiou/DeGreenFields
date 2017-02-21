@@ -1,6 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router'
 const Signin = (props) => {
+  let userLogin = function () {
+    console.log('submit');
+    fetch('/auth/google').then(success=> console.log(success,'success'))
+  }
 return (
   <div className="container">
     <h1 className="welcome text-center">Welcome to Whats Happenin'</h1>
@@ -16,6 +20,9 @@ return (
                 <div id="remember" className="checkbox"></div>
                 <button className="btn btn-lg btn-primary" type="submit">Login</button>
                 <Link to='/signup' >"Don't have an account? Get one!"</Link>
+                <a href='/auth/google' >"Google login"</a>
+                <a href="/auth/facebook">"Facebook Login"</a>
+                <a href="/auth/github" >"Github login"</a>
           </form>
         </div>
   </div>

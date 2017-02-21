@@ -3,6 +3,7 @@ import EventDetail from './components/EventDetail.jsx';
 import EventList from './components/eventList.jsx';
 import Map from './components/Map.jsx';
 import Nav from './../Nav.jsx';
+import Link from 'react-router';
 
 class MapPage extends Component {
   constructor() {
@@ -11,6 +12,7 @@ class MapPage extends Component {
       eventList: ['event1', 'event2', 'event3', 'event4', 'event5'],
       map: null,
       detailsBox: null,
+      loggedIn: true,
     };
   }
   /**
@@ -20,7 +22,7 @@ class MapPage extends Component {
    */
   setDetailsBox(event) {
     console.log(event,'event');
-    this.setState({ detailsBox: 'event1' });
+    this.setState({ detailsBox: event });
   }
 
   /**
@@ -35,7 +37,9 @@ class MapPage extends Component {
 // need will change that updates
   render() {
     return (
+
       <main className="container">
+          {this.state.loggedIn ? (
           <div>
             <Nav />
              <section id="map" className="col-lg-4">
@@ -52,7 +56,11 @@ class MapPage extends Component {
                //want the eventlist items to update the Detailsbox on click
                <EventList eventlist={this.state.eventList} setDetailsBox={this.setDetailsBox.bind(this)}  />
              </sidebar>
-        </div>
+        </div> ) : (
+          <h1>
+            <Link to='/'>You need to Login</Link>
+          </h1>
+        )}
           //nav bar will have the search and filter methods.
       </main>
     );
