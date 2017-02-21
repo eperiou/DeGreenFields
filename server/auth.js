@@ -7,11 +7,11 @@ module.exports = {
   googleAuth: {
     clientID: process.env.GOOGLE_KEY,
     clientSecret: process.env.GOOGLE_SECRET,
-    callbackURL: 'http://localhost:8080/auth/google/callback',
+    callbackURL: `${process.env.APP_URL}auth/google/callback`,
   },
   facebookAuth: {
     clientID: process.env.FACEBOOK_KEY, // your App ID
     clientSecret: process.env.FACEBOOK_SECRET, // your App Secret
-    callbackURL: 'http://localhost:8080/auth/facebook/callback',
+    callbackURL: `${process.env.APP_URL}auth/facebook/callback`,
   },
 };
