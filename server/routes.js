@@ -10,10 +10,10 @@ module.exports = (app, passport) => {
     return res.redirect('/login');
   }
   // begin regular routes
-  app.route('/')
-    .get(isLoggedIn, (req, res) => {
-      res.sendFile(path.join(__dirname, '..', '/public/index.html'));
-    });
+  // app.route('/')
+  //   .get(isLoggedIn, (req, res) => {
+  //     res.sendFile(path.join(__dirname, '..', '/public/index.html'));
+  //   });
   app.route('/login')
     .get((req, res) => {
       res.sendFile(path.join(__dirname, '..', '/public/login.html'));
