@@ -18,7 +18,7 @@ class UserPage extends Component {
    */
   setDetailsBox(event) {
     console.log(event,'event');
-    this.setState({ detailsBox: 'event1' });
+    this.setState({ detailsBox: event });
   }
 
   /**

@@ -38,8 +38,8 @@ module.exports = (app, passport) => {
     .get(passport.authenticate('github'));
   app.route('/auth/github/callback')
     .get(passport.authenticate('github', {
-      successRedirect: '/',
-      failureRedirect: '/login',
+      successRedirect: '/eventspage',
+      failureRedirect: '/signin',
     }));
 
   // Google log-in routes
@@ -48,8 +48,8 @@ module.exports = (app, passport) => {
     // the callback after google has authenticated the user
   app.route('/auth/google/callback')
     .get(passport.authenticate('google', {
-      successRedirect: '/',
-      failureRedirect: '/login',
+      successRedirect: '/eventspage',
+      failureRedirect: '/signin',
     }));
 
   // Facebook log-in routes
@@ -58,8 +58,8 @@ module.exports = (app, passport) => {
     // handle the callback after facebook has authenticated the user
   app.route('/auth/facebook/callback')
     .get(passport.authenticate('facebook', {
-      successRedirect: '/',
-      failureRedirect: '/login',
+      successRedirect: '/eventspage',
+      failureRedirect: '/signin',
     }));
 
   /* AUTHORIZE ROUTES FOR LINKING ACCOUNTS: */

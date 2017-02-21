@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Router, Route, hashHistory } from 'react-router';
-
-import Signin from './Auth/signin.jsx';
+import {Router, Route, browserHistory, IndexRoute } from 'react-router';import Signin from './Auth/signin.jsx';
 import Signup from './Auth/signup.jsx';
-// import Nav from './Nav.jsx';
+
 import MapPage from './mainpage/EventsMappage.jsx';
 import UserPage from './mainpage/UserPage.jsx';
 
@@ -23,13 +21,14 @@ class App extends Component {
 
   render() {
     return (
-      <Router history={hashHistory}>
+      <Router history={browserHistory}>
         <Route path='/' component={Signin} />
+        <Route path='/signin' component={Signin} />
         <Route path='/signup' component={Signup} />
-        <Route path='/eventspage' component={MapPage} >
-        <Route path='/userpage' component={UserPage}/>
+        <Route path='eventspage' component={MapPage} >
+          <Route path='userpage' component={UserPage}/>
         </Route>
-        <Route path='*' component={Signin} />
+        <Route path='*' component={Signup} />
       </Router>
     );
 
@@ -37,6 +36,3 @@ class App extends Component {
 }
 
 export default App;
-// {/* <Signin hasAccount={this.state.hasAccount}
-//   changeSignedIn={this.changeSignedIn.bind(this)}
-//   signedIn={this.state.signedIn}/> */}
