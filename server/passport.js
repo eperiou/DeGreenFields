@@ -12,6 +12,7 @@ module.exports = (passport) => {
   });
 
   passport.deserializeUser((id, cb) => {
+    // TODO: Change to promise
     RegularUser.findById(id, (err, user) => {
       if (err) { return cb(err); }
       cb(null, user);
@@ -68,10 +69,10 @@ module.exports = (passport) => {
         // user already exists and is logged in, we have to link accounts
         const user = req.user; // pull the user out of the session
         // update the current users facebook credentials
-        user.google.id = profile.id;
-        user.google.token = token;
-        user.google.name = profile;
-        user.google.email = profile.emails[0].value;
+        user.github.id = profile.id;
+        user.github.username = profile.username;
+        user.github.displayName = profile.displayName;
+        user.github.publicRepos = profile._json.public_repos;
 
         // save the user
         user.save((err) => {
@@ -124,7 +125,7 @@ module.exports = (passport) => {
         // update the current users facebook credentials
         user.google.id = profile.id;
         user.google.token = token;
-        user.google.name = profile;
+        user.google.name = profile.displayName;
         user.google.email = profile.emails[0].value;
 
         // save the user
