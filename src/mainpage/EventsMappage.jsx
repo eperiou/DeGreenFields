@@ -43,20 +43,22 @@ class MapPage extends Component {
         {this.state.loggedIn ? (
           <div>
             <Nav />
-            <section id="map" className="col-lg-4">
-              <section >
-                <Map />
-                <article id="EventDetail">
-                  <EventDetail event={this.state.detailsBox} />
-                </article>
+            <section id="eventpagebody">
+              <section id="map" className="col-lg-4">
+                <section >
+                  <Map />
+                  <article id="EventDetail">
+                    <EventDetail event={this.state.detailsBox} />
+                  </article>
+                </section>
               </section>
+              <sidebar className="col-lg-4">
+                <EventList
+                  eventlist={this.state.eventList}
+                  setDetailsBox={this.setDetailsBox.bind(this)}
+                />
+              </sidebar>
             </section>
-            <sidebar className="col-lg-4">
-              <EventList
-                eventlist={this.state.eventList}
-                setDetailsBox={this.setDetailsBox.bind(this)}
-              />
-            </sidebar>
           </div>) : (
             <h1>
               <Link to="/">You need to Login</Link>

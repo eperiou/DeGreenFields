@@ -10,14 +10,14 @@ const Event = (props) => {
     props.setDetailsBox(props.event);
   }
   return (
-    <select onClick={setDetailsBox} className="eventdetail">
+    <article className="eventdetail">
       <div className="eventlistbox">
-        <h3>Eventheader</h3>
+        <a onClick={setDetailsBox}>Eventheader</a>
         <div>eventTime: Date,{props.event}</div>
         <a>location: String, link to map</a>
         <p> full event description</p>
       </div>
-    </select>
+    </article>
 
   );
 };
@@ -29,6 +29,7 @@ const Event = (props) => {
 
 export default Event;
 /*
+TODO: put in all pieces for below schema
 Even schema for reference
 // username: String,
 // eventTime: Date,
