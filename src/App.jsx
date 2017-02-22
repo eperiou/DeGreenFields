@@ -15,6 +15,7 @@ class App extends Component {
       business: false,
       hasAccount: true,
     };
+    const state = this.state
   }
   changeSignedIn(signedIn) {
     this.setState({ signedIn });
@@ -23,6 +24,7 @@ class App extends Component {
   render() {
     return (
       <Router history={browserHistory}>
+        {this.state.signedIn}
         <Route path="/" component={Signin} />
         <Route path="/signin" component={Signin} />
         <Route path="/signup" component={Signup} />
