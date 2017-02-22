@@ -1,29 +1,35 @@
 import React from 'react';
 
-const Event = (props) => {
 
-  /**setDetailsBox passed down from mappage
+const Event = (props) => {
+/* setDetailsBox passed down from mappage
  * @param {props.event} an event item
  * @returns sets the Event details box to this event
  */
- var setDetailsBox = function() {
-   props.setDetailsBox(props.event);
- }
- console.log(props);
+  function setDetailsBox() {
+    props.setDetailsBox(props.event);
+  }
   return (
-    <article className="eventdetail">
+    <select onClick={setDetailsBox} className="eventdetail">
+      <div className="eventlistbox">
+        <h3>Eventheader</h3>
+        <div>eventTime: Date,{props.event}</div>
+        <a>location: String, link to map</a>
+        <p> full event description</p>
+      </div>
+    </select>
 
-        <div onClick={setDetailsBox} className='eventlistbox'>
-          <h3>Eventheader</h3>
-            <div>eventTime: Date,{props.event}</div>
-            <a>location: String, link to map</a>
-            <p> full event description</p>
-        </div>
-    </article>
   );
 };
+//
+// Event.propTypes = {
+//   event: React.Proptypes.String.isRequired,
+//   setDetailsBox: React.Proptypes.isRequired,
+// };
 
-//Even schema for reference
+export default Event;
+/*
+Even schema for reference
 // username: String,
 // eventTime: Date,
 // location: String,
@@ -34,3 +40,4 @@ const Event = (props) => {
 // busLink: String, // url to business' homepage
 // description: String,
 export default Event;
+*/
