@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import EventDetail from './components/EventDetail.jsx';
-import EventList from './components/eventList.jsx';
-import Map from './components/Map.jsx';
-import Nav from './../Nav.jsx';
 import Link from 'react-router';
+
+import EventDetail from './components/EventDetail';
+import EventList from './components/eventList';
+import Map from './components/Map';
+import Nav from './../Nav';
+
 
 class MapPage extends Component {
   constructor() {
@@ -20,9 +22,9 @@ class MapPage extends Component {
    * @param {event} the event object a user clicks on
    * @return Sets the state detailbox to the clicked event
    */
-  setDetailsBox(event) {
-    console.log(event,'event');
-    this.setState({ detailsBox: event });
+  setDetailsBox(detailsBox) {
+    console.warn(detailsBox, 'event');
+    this.setState({ detailsBox });
   }
 
   /**
@@ -37,39 +39,34 @@ class MapPage extends Component {
 // need will change that updates
   render() {
     return (
-
       <main className="container">
-          {this.state.loggedIn ? (
+        {this.state.loggedIn ? (
           <div>
             <Nav />
-             <section id="map" className="col-lg-4">
-               <section >
-                 //map will hold google maps
-                   <Map />
-                 <article id="EventDetail">
-                   //plan for object of event to be passed through
-                   <EventDetail event={this.state.detailsBox} />
-                 </article>
-               </section>
-             </section>
-             <sidebar className="col-lg-4">
-               //want the eventlist items to update the Detailsbox on click
-               <EventList eventlist={this.state.eventList} setDetailsBox={this.setDetailsBox.bind(this)}  />
-             </sidebar>
-        </div> ) : (
-          <h1>
-            <Link to='/'>You need to Login</Link>
-          </h1>
-        )}
-          //nav bar will have the search and filter methods.
+            <section id="map" className="col-lg-4">
+              <section >
+                <Map />
+                <article id="EventDetail">
+                  <EventDetail event={this.state.detailsBox} />
+                </article>
+              </section>
+            </section>
+            <sidebar className="col-lg-4">
+              <EventList
+                eventlist={this.state.eventList}
+                setDetailsBox={this.setDetailsBox.bind(this)}
+              />
+            </sidebar>
+          </div>) : (
+            <h1>
+              <Link to="/">You need to Login</Link>
+            </h1>)}
       </main>
     );
   }
 }
 
 export default MapPage;
-
-//navbar
 
 /* <nav className="navbar navbar-inverse navbar-fixed-top">
   <div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import EventList from './components/eventList.jsx';
-import Nav from './../Nav.jsx';
+import EventList from './components/eventList';
+import Nav from './../Nav';
 
 class UserPage extends Component {
   constructor() {
@@ -16,9 +16,9 @@ class UserPage extends Component {
    * @param {event} the event object a user clicks on
    * @return Sets the state detailbox to the clicked event
    */
-  setDetailsBox(event) {
-    console.log(event,'event');
-    this.setState({ detailsBox: event });
+  setDetailsBox(detailsBox) {
+    console.warn(detailsBox, 'event');
+    this.setState({ detailsBox });
   }
 
   /**
@@ -34,24 +34,22 @@ class UserPage extends Component {
   render() {
     return (
       <main className="container">
-          <div>
-            <Nav />
-             <section id="userprofile" className="col-lg-4">
-             </section>
-             <sidebar className="col-lg-4">
-               //want the eventlist items to update the Detailsbox on click
-               <EventList eventlist={this.state.eventList} setDetailsBox={this.setDetailsBox.bind(this)}  />
-             </sidebar>
+        <div>
+          <Nav />
+          <section id="userprofile" className="col-lg-4" />
+          <sidebar className="col-lg-4">
+            <EventList
+              eventlist={this.state.eventList}
+              setDetailsBox={this.setDetailsBox.bind(this)}
+            />
+          </sidebar>
         </div>
-          //nav bar will have the search and filter methods.
       </main>
     );
   }
 }
 
 export default UserPage;
-
-//navbar
 
 /* <nav className="navbar navbar-inverse navbar-fixed-top">
   <div>
