@@ -10,10 +10,10 @@ module.exports = (app, passport) => {
     return res.redirect('/login');
   }
   // begin regular routes
-  // app.route('/')
-  //   .get(isLoggedIn, (req, res) => {
-  //     res.sendFile(path.join(__dirname, '..', '/public/index.html'));
-  //   });
+  app.route('/eventspage')
+    .get(isLoggedIn, (req, res) => {
+      res.send('/build');
+    });
   app.route('/login')
     .get((req, res) => {
       res.sendFile(path.join(__dirname, '..', '/public/login.html'));
@@ -39,17 +39,17 @@ module.exports = (app, passport) => {
   app.route('/auth/github/callback')
     .get(passport.authenticate('github', {
       successRedirect: '/',
-      failureRedirect: '/login',
+      failureRedirect: '/signin',
     }));
 
   // Google log-in routes
   app.route('/auth/google')
-    .get(passport.authenticate('google', { scope: ['profile', 'email'] }));
+    .get(passport.authenticate('google', { scope: ['profile', 'email'] }), () => console.warn(arguments));
     // the callback after google has authenticated the user
   app.route('/auth/google/callback')
     .get(passport.authenticate('google', {
       successRedirect: '/',
-      failureRedirect: '/login',
+      failureRedirect: '/signin',
     }));
 
   // Facebook log-in routes
@@ -59,7 +59,7 @@ module.exports = (app, passport) => {
   app.route('/auth/facebook/callback')
     .get(passport.authenticate('facebook', {
       successRedirect: '/',
-      failureRedirect: '/login',
+      failureRedirect: '/signin',
     }));
 
   /* AUTHORIZE ROUTES FOR LINKING ACCOUNTS: */

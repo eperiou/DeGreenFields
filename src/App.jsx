@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { Router, Route, browserHistory } from 'react-router';
 import './App.css';
 
-
-// import Signin from './Auth/signin.jsx';
-
-import MapPage from './mainpage/EventsMappage.jsx'
+import Signin from './Auth/signin';
+import Signup from './Auth/signup';
+import MapPage from './mainpage/EventsMappage';
+import UserPage from './mainpage/UserPage';
 
 class App extends Component {
   constructor() {
@@ -14,21 +15,26 @@ class App extends Component {
       business: false,
       hasAccount: true,
     };
+    const state = this.state
   }
   changeSignedIn(signedIn) {
     this.setState({ signedIn });
   }
+
   render() {
     return (
-      <div>
-        <MapPage />
-      </div>
-
+      <Router history={browserHistory}>
+        {this.state.signedIn}
+        <Route path="/" component={Signin} />
+        <Route path="/signin" component={Signin} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/eventspage" component={MapPage} >
+          <Route path="/userpage" component={UserPage} />
+        </Route>
+        <Route path="*" component={Signup} />
+      </Router>
     );
-
   }
 }
+
 export default App;
-// {/* <Signin hasAccount={this.state.hasAccount}
-//   changeSignedIn={this.changeSignedIn.bind(this)}
-//   signedIn={this.state.signedIn}/> */}

@@ -1,20 +1,14 @@
 import React, { Component } from 'react';
-import Link from 'react-router';
-
-import EventDetail from './components/EventDetail';
 import EventList from './components/eventList';
-import Map from './components/Map';
 import Nav from './../Nav';
 
-
-class MapPage extends Component {
+class UserPage extends Component {
   constructor() {
     super();
     this.state = {
-      eventList: ['event1', 'event2', 'event3', 'event4', 'event5'],
+      eventList: ['userevent1', 'userevent2', 'userevent3', 'userevent4', 'userevent5'],
       map: null,
       detailsBox: null,
-      loggedIn: true,
     };
   }
   /**
@@ -40,35 +34,22 @@ class MapPage extends Component {
   render() {
     return (
       <main className="container">
-        {this.state.loggedIn ? (
-          <div>
-            <Nav />
-            <section id="eventpagebody">
-              <section id="map" className="col-lg-4">
-                <section >
-                  <Map />
-                  <article id="EventDetail">
-                    <EventDetail event={this.state.detailsBox} />
-                  </article>
-                </section>
-              </section>
-              <sidebar className="col-lg-4">
-                <EventList
-                  eventlist={this.state.eventList}
-                  setDetailsBox={this.setDetailsBox.bind(this)}
-                />
-              </sidebar>
-            </section>
-          </div>) : (
-            <h1>
-              <Link to="/">You need to Login</Link>
-            </h1>)}
+        <div>
+          <Nav />
+          <section id="userprofile" className="col-lg-4" />
+          <sidebar className="col-lg-4">
+            <EventList
+              eventlist={this.state.eventList}
+              setDetailsBox={this.setDetailsBox.bind(this)}
+            />
+          </sidebar>
+        </div>
       </main>
     );
   }
 }
 
-export default MapPage;
+export default UserPage;
 
 /* <nav className="navbar navbar-inverse navbar-fixed-top">
   <div>
