@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import './App.css';
 
+import Splash from './Splash';
 import Signin from './Auth/signin';
 import Signup from './Auth/signup';
 import MapPage from './mainpage/EventsMappage';
@@ -15,7 +16,6 @@ class App extends Component {
       business: false,
       hasAccount: true,
     };
-    const state = this.state
   }
   changeSignedIn(signedIn) {
     this.setState({ signedIn });
@@ -24,14 +24,14 @@ class App extends Component {
   render() {
     return (
       <Router history={browserHistory}>
-        {this.state.signedIn}
-        <Route path="/" component={Signin} />
-        <Route path="/signin" component={Signin} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/eventspage" component={MapPage} >
-          <Route path="/userpage" component={UserPage} />
+        <Route path="/" component={Splash} >
+          <IndexRoute component={Signin} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/eventspage" component={MapPage} >
+            <Route path="/userpage" component={UserPage} />
+          </Route>
+          <Route path="*" component={Signup} />
         </Route>
-        <Route path="*" component={Signup} />
       </Router>
     );
   }

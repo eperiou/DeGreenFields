@@ -7,12 +7,13 @@ module.exports = (app, passport) => {
     if (req.isAuthenticated()) {
       return next();
     }
-    return res.redirect('/login');
+    return res.redirect('/signin');
   }
+  app.get('*', (req, res) => res.render(path.join()));
   // begin regular routes
   app.route('/eventspage')
     .get(isLoggedIn, (req, res) => {
-      res.send('/build');
+      res.send('/eventspage');
     });
   app.route('/login')
     .get((req, res) => {
@@ -38,7 +39,7 @@ module.exports = (app, passport) => {
     .get(passport.authenticate('github'));
   app.route('/auth/github/callback')
     .get(passport.authenticate('github', {
-      successRedirect: '/',
+      successRedirect: '/eventspage',
       failureRedirect: '/signin',
     }));
 
@@ -87,9 +88,10 @@ module.exports = (app, passport) => {
   // the callback after google has authorized the user
   app.get('/connect/github/callback',
     passport.authorize('github', {
-      successRedirect: '/profile',
-      failureRedirect: '/',
+      successRedirect: '/eventspage',
+      failureRedirect: '/eventspage',
     }));
+
 
   app.get('/get/events', logic.getEvents);
 
